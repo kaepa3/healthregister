@@ -12,6 +12,10 @@ import (
 	"github.com/kaepa3/healthregister/health"
 )
 
+const (
+	mondodbUri = "mongodb://mongo:pass@127.0.0.1:27017/"
+)
+
 var conf *config.HealthConfig
 
 func main() {
@@ -35,7 +39,7 @@ func main() {
 func RegisterDB(data *healthplanet.JsonResponce) error {
 	ctx := context.Background()
 	dbOpt := db.RegisterOption{
-		Url: "127.0.0.1",
+		Url: mondodbUri,
 	}
 	return db.RegisterDB(data, &dbOpt, ctx)
 }
