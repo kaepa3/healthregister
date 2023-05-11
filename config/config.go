@@ -9,6 +9,7 @@ import (
 type HealthConfig struct {
 	ClientID     string
 	ClientSecret string
+	MongoURL     string
 }
 
 func LoadConfig() (*HealthConfig, error) {
@@ -19,6 +20,7 @@ func LoadConfig() (*HealthConfig, error) {
 	conf := HealthConfig{
 		ClientID:     os.Getenv("CLIENT_ID"),
 		ClientSecret: os.Getenv("CLIENT_SECRET"),
+		MongoURL:     os.Getenv("MONGO_URL"),
 	}
 	return &conf, err
 }

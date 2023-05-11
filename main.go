@@ -41,11 +41,11 @@ func RegisterDB(data *healthplanet.JsonResponce) error {
 	dbOpt := db.RegisterOption{
 		Url: mondodbUri,
 	}
-	return db.RegisterDB(data, &dbOpt, ctx)
+	return db.RegisterDB(data, &dbOpt, conf.ClientID, ctx)
 }
 
 func GetData() (*healthplanet.JsonResponce, error) {
-	from, _ := time.Parse("01-02-15-04-05-2006", "01-01-00-00-00-2022")
+	from := time.Now().AddDate(0, -1, 0)
 	ctx := context.Background()
 	opt := healthplanet.HealthPlanetOption{
 		Format: healthplanet.Json,
