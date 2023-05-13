@@ -1,1 +1,1 @@
-scp -pr Register %1:Documents
+scp -pr register %1:Documents
